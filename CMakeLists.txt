@@ -57,8 +57,13 @@ else()
     set(SVF_LIB "${SVF_DIR}/Release-build/lib/libSvf.a")
     set(LLVMCudd "${SVF_DIR}/Release-build/lib/CUDD/libCudd.a")
 endif()
-set(SVF_HEADER "${SVF_DIR}/include")
-include_directories(${SVF_HEADER})
+
+# set(SVF_INCLUDE "${SVF_DIR}/include")
+# include_directories(${SVF_INCLUDE})
+
+set(SVF_INCLUDE "${SVF_DIR}/svf/include")
+set(SVF_LLVM_INCLUDE "${SVF_DIR}/svf-llvm/include")
+include_directories(${SVF_INCLUDE} ${SVF_LLVM_INCLUDE})
 
 #set z3 env
 if (DEFINED Z3_DIR)
